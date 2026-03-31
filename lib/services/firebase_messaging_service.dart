@@ -21,9 +21,7 @@ class FirebaseMessagingService {
       badge: true,
       sound: true,
     );
-    print('User granted permission: ${settings.authorizationStatus}');
-
-    String? token;
+    debugPrint('User granted permission: ${settings.authorizationStatus}');
 
     // foreground message handler
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
@@ -40,18 +38,18 @@ class FirebaseMessagingService {
 
     // app is in background
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      print("Notification opened from background!");
-      print("Title: ${message.notification?.title}");
-      print("Body: ${message.notification?.body}");
+      debugPrint("Notification opened from background!");
+      debugPrint("Title: ${message.notification?.title}");
+      debugPrint("Body: ${message.notification?.body}");
     });
 
     // app is in terminated state
     RemoteMessage? initialMessage = await FirebaseMessaging.instance
         .getInitialMessage();
     if (initialMessage != null) {
-      print("App opened from terminated state!");
-      print("Title: ${initialMessage.notification?.title}");
-      print("Body: ${initialMessage.notification?.body}");
+      debugPrint("App opened from terminated state!");
+      debugPrint("Title: ${initialMessage.notification?.title}");
+      debugPrint("Body: ${initialMessage.notification?.body}");
     }
   }
 

@@ -83,5 +83,4 @@ class DefaultFirebaseOptions {
     authDomain: 'to-do-list-ae1d3.firebaseapp.com',
     storageBucket: 'to-do-list-ae1d3.firebasestorage.app',
   );
-
 }
